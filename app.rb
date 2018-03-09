@@ -9,7 +9,7 @@ INVALID_RESPONSE = "Sorry, I don't recognize that city/state/country.".freeze
 post '/slack/territory' do
   case params['text'].to_s.strip
   when 'help', '' then HELP_RESPONSE
-  when 'NY', '' then "Mallorie"
+  when 'NY', 'New York', '' then "Mallorie"
   else INVALID_RESPONSE
   end
 end
