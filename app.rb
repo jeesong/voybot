@@ -21,7 +21,7 @@ MALLORIE_RESPONSE = "#{$1} belongs to Mallorie's territory!"
 post '/slack/territory' do
   case params['text'].to_s.strip
   when 'help', '' then HELP_RESPONSE
-  when MALLORIE_REGION then MALLORIE_RESPONSE
+  when MALLORIE_REGION then MALLORIE_RESPONSE % $1
   # when TEILA_REGION then TEILA_RESPONSE
   # when NATE_REGION then NATE_RESPONSE
   # when HAYLEY_REGION then HAYLEY_RESPONSE
