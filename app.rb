@@ -6,7 +6,7 @@ use SlackAuthorizer
 HELP_RESPONSE = "Use `/voybot` to see which AE owns the specific State or Country based on territories. Example: `/voybot New York`".freeze
 INVALID_RESPONSE = "Sorry, I don't recognize that city/state/country.".freeze
 MALLORIE_REGION = /(New York|NY|Pennsylvania|PA|New Jersey|NJ)/
-MALLORIE_RESPONSE = "#{params['text']} belongs to Mallorie's territory!"
+MALLORIE_RESPONSE = "#{$1} belongs to Mallorie's territory!"
 # TEILA_REGION = /()/
 # TEILA_RESPONSE =
 # ROSS_REGION = //
