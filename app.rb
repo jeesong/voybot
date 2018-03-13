@@ -8,15 +8,15 @@ INVALID_RESPONSE = "Sorry, I don't recognize %s.".freeze
 MALLORIE_REGION = /(New York|NY|Pennsylvania|PA|New Jersey|NJ)/
 MALLORIE_RESPONSE = "%s belongs to Mallorie's territory!".freeze
 # TEILA_REGION = /()/
-# TEILA_RESPONSE =
+TEILA_RESPONSE = "%s belongs to Teila's territory!".freeze
 # ROSS_REGION = //
-# ROSS_RESPONSE =
+ROSS_RESPONSE = "%s belongs to Ross' territory!".freeze
 # HAYLEY_REGION = //
-# HAYLEY_RESPONSE =
+HAYLEY_RESPONSE = "%s belongs to Hayley's territory!".freeze
 # NATE_REGION = //
-# NATE_RESPONSE =
+NATE_RESPONSE = "%s belongs to Nate's territory!".freeze
 # SEAN_REGION = //
-# SEAN_RESPONSE =
+SEAN_RESPONSE = "%s belongs to Sean's territory!".freeze
 
 post '/slack/territory' do
   case params['text'].to_s.strip
