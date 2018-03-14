@@ -21,7 +21,7 @@ CA_Response = "California is split between Hayley & Ross. Ross is responsible fo
 post '/slack/territory' do
   case params['text'].to_s.strip
   when 'help', '' then HELP_RESPONSE
-  when 'CA' || 'ca' || 'california' || 'California', '' then CA_Response
+  when 'CA', 'ca', 'california', 'California', '' then CA_Response
   when MALLORIE_REGION then MALLORIE_RESPONSE % $1
   when 'Mallorie', '' then "Mallorie's Territory: New York, Pennsylvania, New Jersey"
   when TEILA_REGION then TEILA_RESPONSE % $1
