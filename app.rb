@@ -8,7 +8,7 @@ MALLORIE_US_REGION = /([Nn]ew [Yy]ork|NY|[Pp]ennsylvania|PA|[Nn]ew [Jj]ersey|NJ|
 MALLORIE_ROW_REGION = /([Ss]ingapore|[Nn]ew [Zz]eland|[Jj]apan|[Ii]ndia|[Cc]hina|[Aa]ustralia)/
 MALLORIE_RESPONSE = "%s belongs to Mallorie's territory!".freeze
 TEILA_US_REGION = /(CT|MA|RI|NH|VT|ME|DE|VA|MD|DC|[Dd]elaware|[Cc]onnecticut|[Mm]aine|[Rr]hode [Ii]sland|[Nn]ew [Hh]ampshire|[Vv]ermont|[Mm]assachusetts|[Vv]irginia|[Mm]aryland|[Ww]ashington [Dd][Cc])/
-TEILA_ROW_REGION = //
+TEILA_ROW_REGION = /([Ee]ngland|[Ii]reland)|[Uu]nited [Kk]ingdom|[Ff]rance|[Ss]pain|[Ii]taly|[Gg]reece|[Bb]elgium|[Pp]ortugal|[Oo]ntario|[Qq]uebec)/
 TEILA_RESPONSE = "%s belongs to Teila's territory!".freeze
 ROSS_US_REGION = /(OR|WA|AK|HI|[Hh]awaii|[Aa]laska|[Ww]ashington|[Oo]regon)/
 ROSS_ROW_REGION = //
@@ -29,7 +29,7 @@ post '/slack/territory' do
   when 'CA', 'ca', 'california', 'California', '' then CA_Response
   when MALLORIE_US_REGION, MALLORIE_ROW_REGION then MALLORIE_RESPONSE % $1
   when 'Mallorie', '' then "Mallorie's Territory: New York, Pennsylvania, New Jersey, Ohio, West Virginia"
-  when TEILA_US_REGION then TEILA_RESPONSE % $1
+  when TEILA_US_REGION, TEILA_ROW_REGION then TEILA_RESPONSE % $1
   when 'Teila', '' then "Teila's Territory: Connecticut, Maine, Rhode Island, New Hampshire, Vermont, Massachusetts, Delaware, Virginia, Maryland, Washington DC"
   when NATE_US_REGION then NATE_RESPONSE % $1
   when 'Nate', '' then "Nate's Territory: Colorado, Nevada, Utah, New Mexico, Wyoming, Idaho, Montana, North Dakota, South Dakota, Minnesota, Iowa, Missouri, Illinoise, Wisconsin, Indiana, Kentucky, Michigan"
