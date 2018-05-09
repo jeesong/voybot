@@ -5,21 +5,21 @@ use SlackAuthorizer
 
 HELP_RESPONSE = "Use `/salesbot` to see which AE owns the specific State or Country based on territories or a list of states that the AE owns. \nExample: `/salesbot New York` or `/salesbot NY` or `/salesbot Mallorie`".freeze
 MALLORIE_US_REGION = /([Nn]ew [Yy]ork|NY|[Pp]ennsylvania|PA|[Nn]ew [Jj]ersey|NJ|[Oo]hio|[Ww]est [Vv]irginia|OH|WV)/
-MALLORIE_ROW_REGION = /([Ss]ingapore|[Nn]ew [Zz]eland|[Jj]apan|[Ii]ndia|[Cc]hina|[Aa]ustralia|[Vv]ietnam)/
+MALLORIE_ROW_REGION = /([Ss]ingapore|[Nn]ew [Zz]eland|[Jj]apan|[Ii]ndia|[Cc]hina|[Aa]ustralia)/
 MALLORIE_RESPONSE = "%s belongs to Mallorie's territory!".freeze
 TEILA_US_REGION = /(CT|MA|RI|NH|VT|ME|DE|VA|MD|DC|[Dd]elaware|[Cc]onnecticut|[Mm]aine|[Rr]hode [Ii]sland|[Nn]ew [Hh]ampshire|[Vv]ermont|[Mm]assachusetts|[Vv]irginia|[Mm]aryland|[Ww]ashington [Dd][Cc])/
 TEILA_ROW_REGION = /([Ee]ngland|[Ii]reland)|[Uu]nited [Kk]ingdom|[Ff]rance|[Ss]pain|[Ii]taly|[Gg]reece|[Bb]elgium|[Pp]ortugal|[Oo]ntario|[Qq]uebec)/
 TEILA_RESPONSE = "%s belongs to Teila's territory!".freeze
 ROSS_US_REGION = /(OR|WA|AK|HI|[Hh]awaii|[Aa]laska|[Ww]ashington|[Oo]regon)/
-# ROSS_ROW_REGION = /([Bb]ritish [Cc]olumbia)/
+ROSS_ROW_REGION = //
 ROSS_RESPONSE = "%s belongs to Ross' territory!".freeze
 HAYLEY_US_REGION = /([Ss]ocal|[Ss]an [Ff]rancisco|[lL]os [Aa]ngeles|AZ|[Aa]rizona)/
 HAYLEY_RESPONSE = "%s belongs to Hayley's territory!".freeze
 NATE_US_REGION = /(NV|ID|MT|WY|UT|CO|NM|KS|NE|SD|ND|MN|IA|MO|WI|IL|IN|MI|KY|[Cc]olorado|[Nn]evada|[Uu]tah|[nN]ew [Mm]exico|[Ww]yoming|[Ii]daho|[Mm]ontana|[Nn]orth [Dd]akota|[Ss]outh [Dd]akota|[Mm]innesota|[Ii]owa|[Mm]issouri|[Ii]llinoise|[Ww]isconsin|[Ii]ndiana|[Kk]entucky|[Mm]ichigan)/
-# NATE_ROW_REGION = /([Mm]exico|[Ii]srael|[Bb]razil|[Ss]outh [Aa]frica)/
+NATE_ROW_REGION = //
 NATE_RESPONSE = "%s belongs to Nate's territory!".freeze
 SEAN_US_REGION = /(TX|OK|AR|LA|MS|GA|FL|SC|NC|TN|[Tt]exas|[Oo]klahoma|[Aa]rkansas|[Ll]ouisiana|[Mm]ississippi|[Gg]eorgia|[Ff]lordia|[Ss]outh [Cc]arolina|[Nn]orth [Cc]arolina|[Tt]ennessee)/
-# SEAN_ROW_REGION = /([Gg]ermany|[Nn]etherlands|[Ss]weden|[Ss]witzerland|[Nn]orway|[Ff]inland|[Dd]enmark)/
+SEAN_ROW_REGION = //
 SEAN_RESPONSE = "%s belongs to Sean's territory!".freeze
 CA_Response = "California is split between Hayley & Ross. Ross is responsible for NorCal (except SF) and Hayley is responsible for SoCal & SF"
 
@@ -39,6 +39,6 @@ post '/slack/territory' do
   when 'Ross', '' then "Ross' Territory: Northern California, Hawaii, Alaska, Washington State, Oregon"
   when SEAN_US_REGION then SEAN_RESPONSE % $1
   when 'Sean', '' then "Sean's Territory: Texas, Oklahoma, Arkansas, Louisiana, Mississippi, Georgia, Florida, South Carolina, North Carolina, Tennessee"
-  else "Sorry I don't recognize #{params['text']} :sadparrot: Message Jee to have this country added to the bot!"
+  else "Sorry I don't recognize #{params['text']} :sadparrot:"
   end
 end
