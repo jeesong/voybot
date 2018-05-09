@@ -35,7 +35,7 @@ post '/slack/territory' do
   when 'Nate', '' then "Nate's Territory: Colorado, Nevada, Utah, New Mexico, Wyoming, Idaho, Montana, North Dakota, South Dakota, Minnesota, Iowa, Missouri, Illinoise, Wisconsin, Indiana, Kentucky, Michigan"
   when HAYLEY_US_REGION then HAYLEY_RESPONSE % $1
   when 'Hayley', '' then "Hayley's Territory: San Francisco, Southern California, Arizona"
-  when ROSS_US_REGION, ROW_ROW_REGION then ROSS_RESPONSE % $1
+  when ROSS_US_REGION, ROSS_ROW_REGION then ROSS_RESPONSE % $1
   when 'Ross', '' then "Ross' Territory: Northern California, Hawaii, Alaska, Washington State, Oregon"
   when SEAN_US_REGION, SEAN_ROW_REGION then SEAN_RESPONSE % $1
   when 'Sean', '' then "Sean's Territory: Texas, Oklahoma, Arkansas, Louisiana, Mississippi, Georgia, Florida, South Carolina, North Carolina, Tennessee"
