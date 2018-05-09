@@ -16,7 +16,7 @@ ROSS_RESPONSE = "%s belongs to Ross' territory!".freeze
 HAYLEY_US_REGION = /([Ss]ocal|[Ss]an [Ff]rancisco|[lL]os [Aa]ngeles|AZ|[Aa]rizona)/
 HAYLEY_RESPONSE = "%s belongs to Hayley's territory!".freeze
 NATE_US_REGION = /(NV|ID|MT|WY|UT|CO|NM|KS|NE|SD|ND|MN|IA|MO|WI|IL|IN|MI|KY|[Cc]olorado|[Nn]evada|[Uu]tah|[nN]ew [Mm]exico|[Ww]yoming|[Ii]daho|[Mm]ontana|[Nn]orth [Dd]akota|[Ss]outh [Dd]akota|[Mm]innesota|[Ii]owa|[Mm]issouri|[Ii]llinoise|[Ww]isconsin|[Ii]ndiana|[Kk]entucky|[Mm]ichigan)/
- = /([Mm]exico|[Ii]srael|[Bb]razil|[Ss]outh [Aa]frica)/
+# NATE_ROW_REGION = /([Mm]exico|[Ii]srael|[Bb]razil|[Ss]outh [Aa]frica)/
 NATE_RESPONSE = "%s belongs to Nate's territory!".freeze
 SEAN_US_REGION = /(TX|OK|AR|LA|MS|GA|FL|SC|NC|TN|[Tt]exas|[Oo]klahoma|[Aa]rkansas|[Ll]ouisiana|[Mm]ississippi|[Gg]eorgia|[Ff]lordia|[Ss]outh [Cc]arolina|[Nn]orth [Cc]arolina|[Tt]ennessee)/
 # SEAN_ROW_REGION = /([Gg]ermany|[Nn]etherlands|[Ss]weden|[Ss]witzerland|[Nn]orway|[Ff]inland|[Dd]enmark)/
@@ -39,6 +39,6 @@ post '/slack/territory' do
   when 'Ross', '' then "Ross' Territory: Northern California, Hawaii, Alaska, Washington State, Oregon"
   when SEAN_US_REGION then SEAN_RESPONSE % $1
   when 'Sean', '' then "Sean's Territory: Texas, Oklahoma, Arkansas, Louisiana, Mississippi, Georgia, Florida, South Carolina, North Carolina, Tennessee"
-  else "Sorry I don't recognize #{params['text']} :sadparrot:"
+  else "Sorry I don't recognize #{params['text']} :sadparrot: Message Jee to have this country added to the bot!"
   end
 end
